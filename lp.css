@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #059eaf;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.header .nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header .nav a:hover {
+    background-color: 003366;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.content p {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #d1d1d1;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content .buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.content .buttons button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.content .buttons .btn-primary {
+    background-color: #fff;
+    color: #000;
+}
+
+.content .buttons .btn-primary:hover {
+    background-color: #e0e0e0;
+}
+
+.content .buttons .btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.content .buttons .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

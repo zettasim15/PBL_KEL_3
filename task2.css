@@ -1,0 +1,55 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e4e9f7;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    margin-left: 200px;
+    padding: 30px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 200%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #96D3DA;
+    color: white;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.edit-btn {
+    padding: 6px 12px;
+    background-color: #96D3DA;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #96D3DA;
+}
