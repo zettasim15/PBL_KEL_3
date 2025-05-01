@@ -94,39 +94,53 @@ $member_count = $member_data['member_count'] ?? 0;
         <i class="bx bx-menu" id="btn"></i>
     </div>
     <ul class="nav-list">
-        <li>
-            <i class="bx bx-search"></i>
-            <input type="text" placeholder="Search...">
-            <span class="tooltip">Search</span>
-        </li>
-        <li>
-            <a href="manager_dashboard.php">
-                <i class="bx bxs-home"></i>
-                <span class="link_name">Home</span>
-            </a>
-            <span class="tooltip">Home</span>
-        </li>
-        <li>
-            <a href="Manage.php">
-                <i class="bx bxs-folder-plus"></i>
-                <span class="link_name">Manage</span>
-            </a>
-            <span class="tooltip">Manage</span>
-        </li>
-        <li>
-            <a href="kalender.php">
-                <i class="bx bxs-calendar"></i>
-                <span class="link_name">Calendar</span>
-            </a>
-            <span class="tooltip">Calendar</span>
-        </li>
-        <li>
-            <a href="invitemember.php">
-                <i class="bx bxs-group"></i>
-                <span class="link_name">Invite Member</span>
-            </a>
-            <span class="tooltip">Invite Member</span>
-        </li>
+    <li>
+                <i class="bx bx-search"></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="manager_dashboard.php">
+                    <i class="bx bxs-home"></i>
+                    <span class="link_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="Manage.php">
+                    <i class="bx bxs-folder-plus"></i>
+                    <span class="link_name">Manage</span>
+                </a>
+                <span class="tooltip">Manage</span>
+            </li>
+            <li>
+                <a href="kalender.php">
+                    <i class="bx bxs-calendar"></i>
+                    <span class="link_name">Calendar</span>
+                </a>
+                <span class="tooltip">Calendar</span>
+            </li>
+            <li>
+                <a href="invitemember.php">
+                    <i class="bx bxs-group"></i>
+                    <span class="link_name">Invite Member</span>
+                </a>
+                <span class="tooltip">Invite Member</span>
+            </li>
+            <li>
+                <a href="presence_manager.php">
+                    <i class="bx bx-user-check"></i>
+                    <span class="link_name">Presence</span>
+                </a>
+                <span class="tooltip">Presence</span>
+            </li>
+            <li>
+                <a href="task_manager.php">
+                    <i class="bx bx-task-x"></i>
+                    <span class="link_name">Tasks</span>
+                </a>
+                <span class="tooltip">Tasks</span>
+            </li>
         <li class="profile">
             <div class="profile_details">
                 <img src="<?= htmlspecialchars($profile_image); ?>" alt="profile image">
