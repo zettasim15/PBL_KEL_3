@@ -1,55 +1,71 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e4e9f7;
-    margin: 0;
-    padding: 0;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+h2, h1 {
+    text-align: center;
+    color: #004f83;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+form input, form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #66c7d5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form button:hover {
+    background-color: #46a3b0;
 }
 
 .content {
-    margin-left: 200px;
-    padding: 30px;
-}
-
-h1 {
-    margin-bottom: 20px;
-    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 table {
-    width: 200%;
+    width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #96D3DA;
-    color: white;
-}
-
-select {
-    padding: 5px;
-    border-radius: 5px;
+table th, table td {
     border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
 }
 
-.edit-btn {
-    padding: 6px 12px;
-    background-color: #96D3DA;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+table th {
+    background-color: #b0e0e6;
+    color: #333;
 }
 
-.edit-btn:hover {
-    background-color: #96D3DA;
+table td select {
+    padding: 6px;
+    border-radius: 5px;
 }

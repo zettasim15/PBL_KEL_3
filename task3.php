@@ -69,6 +69,13 @@ $tugas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <span class="tooltip">Schedule</span>
         </li>
         <li>
+            <a href="kalendermember.php">
+                <i class="bx bxs-calendar"></i>
+                <span class="link_name">Calendar</span>
+            </a>
+            <span class="tooltip">Calendar</span>
+        </li>
+        <li>
             <a href="group.php">
                 <i class="bx bxs-group"></i>
                 <span class="link_name">Teams</span>
@@ -78,9 +85,9 @@ $tugas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <li>
             <a href="presence.php">
                 <i class='bx bx-user-check'></i>
-                <span class="link_name">Attendance</span>
+                <span class="link_name">Presence</span>
             </a>
-            <span class="tooltip">Attendance</span>
+            <span class="tooltip">Presence</span>
         </li>
         <li>
             <a href="task2.php">
@@ -104,52 +111,43 @@ $tugas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </ul>
 </div>
 
-<!-- Tabel tugas -->
-<div class="container">
-    <h2>Tambah Tugas</h2>
-    <form method="POST" action="">
-        <input type="text" name="nama" placeholder="Nama Tugas" required>
-        <input type="date" name="deadline" required>
-        <select name="status" required>
-            <option value="Belum Selesai">Belum Selesai</option>
-            <option value="Dalam Proses">Dalam Proses</option>
-            <option value="Selesai">Selesai</option>
-        </select>
-        <input type="text" name="deskripsi" placeholder="Deskripsi">
-        <button type="submit" name="submit">Tambah</button>
-    </form>
+<div class="content">
+    <h2>Daftar Task</h2>
 
-    <h1>Task List</h1>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <th>Task</th>
-            <th>Deadline</th>
-            <th>Status</th>
-            <th>Description</th>
-        </tr>
-        <?php if (!empty($tugas)) : ?>
-            <?php foreach ($tugas as $t): ?>
+    <form method="POST" action="simpan_action.php">
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($t['nama']) ?></td>
-                    <td><?= htmlspecialchars($t['deadline']) ?></td>
-                    <td>
-                        <select disabled>
-                            <option <?= $t['status'] == 'Belum Selesai' ? 'selected' : '' ?>>Belum Selesai</option>
-                            <option <?= $t['status'] == 'Dalam Proses' ? 'selected' : '' ?>>Dalam Proses</option>
-                            <option <?= $t['status'] == 'Selesai' ? 'selected' : '' ?>>Selesai</option>
-                        </select>
-                    </td>
-                    <td><?= htmlspecialchars($t['deskripsi']) ?></td>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Task</th>
+                    <th>Action</th>
                 </tr>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <tr>
-                <td colspan="4">Belum ada tugas.</td>
-            </tr>
-        <?php endif; ?>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                $no = 1;
+                $query = mysqli_query($sconn, "SELECT * FROM tasks");
+                while ($row = mysqli_fetch_assoc($query)) {
+                ?>
+                    <tr>
+                        <td><?= $no++; ?></td>
+                        <td><?= htmlspecialchars($row['name']); ?></td>
+                        <td><?= htmlspecialchars($row['task']); ?></td>
+                        <td>
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                            <select name="action[]">
+                                <option value="Task Manage" <?= ($row['action'] == 'Task Manage') ? 'selected' : '' ?>>Task Manage</option>
+                                <option value="Task Member" <?= ($row['action'] == 'Task Member') ? 'selected' : '' ?>>Task Member</option>
+                            </select>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <br>
+        <div style="text-align:center;">
+            <button type="submit">Simpan Perubahan</button>
+        </div>
+    </form>
 </div>
-
-<script src="presence.js"></script>
-</body>
-</html>

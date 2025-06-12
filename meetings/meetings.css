@@ -1,24 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-:root{
-  --color-default:#96d3da;
-  --color-second:#0067ac;
-  --color-white:#fff;
-  --color-body:#d0eaeb;
-  --color-light:#e0e0e0;
+:root {
+  --color-default: #96D3DA;
+  --color-second: #D0EAEB;
+  --color-white: #fff;
+  --color-body: #e4e9f7;
+  --color-light: #e0e0e0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
-body {
-  min-height: 100vh;
-  background: var(--color-body);
-}
+
+
 
 .sidebar {
   position: fixed;
@@ -232,78 +224,4 @@ body {
   transition: 0.4s;
 }
 
-.sidebar.open #log_out {
-  right: 20px;
-}
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-}
-
-h2, h3 {
-    color: #004f83;
-    margin-bottom: 10px;
-}
-
-/* ========== FORM PRESENCE STYLES ========== */
-form.presence-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-form.presence-form input[type="text"],
-form.presence-form input[type="date"],
-form.presence-form select,
-form.presence-form input[type="file"] {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  min-width: 200px;
-}
-
-form.presence-form input[type="file"] {
-  min-width: 250px;
-  background-color: white;
-}
-
-form.presence-form button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #8dd3dd;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-form.presence-form button:hover {
-  background-color: #62b7c3;
-}
-
-/* ========== TABEL PRESENCE ========== */
-table.presence-table {
-  width: 90%;
-  margin: auto;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table.presence-table th,
-table.presence-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-table.presence-table th {
-  background-color: #f0f0f0;
-}
-
+ 

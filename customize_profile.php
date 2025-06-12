@@ -88,7 +88,7 @@ $profile_image = $user['profile_image'] ? $user['profile_image'] : 'default_prof
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #;
+            background-color: #96d3da;
             font-family: Arial, sans-serif;
         }
         .container {

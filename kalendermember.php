@@ -117,9 +117,9 @@ echo "<script> var scheds = " . json_encode($sched_res) . ";</script>";
         <li>
             <a href="presence.php">
                 <i class='bx bx-user-check'></i>
-                <span class="link_name">Presence</span>
+                <span class="link_name">Attendance</span>
             </a>
-            <span class="tooltip">Presence</span>
+            <span class="tooltip">Attendance</span>
         </li>
         <li>
             <a href="task2.php">
@@ -132,7 +132,7 @@ echo "<script> var scheds = " . json_encode($sched_res) . ";</script>";
             <div class="profile_details">
                 <img src="<?= htmlspecialchars($profile_image); ?>" alt="profile image">
                 <div class="profile_content">
-                    <div class="name"><?= htmlspecialchars($_SESSION['display_username']); ?></div>
+                    <div class="name"><?= htmlspecialchars($user['username']); ?></div>
                     <div class="designation"><?= htmlspecialchars($user['role']); ?></div>
                 </div>
             </div>

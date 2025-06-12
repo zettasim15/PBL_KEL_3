@@ -122,12 +122,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="tooltip">Calendar</span>
             </li>
             <li>
-                <a href="presence.php">
-                    <i class="bx bx-calendar-check"></i>
-                    <span class="link_name">Presence</span>
-                </a>
-                <span class="tooltip">Presence</span>
-            </li>
+            <a href="presence.php">
+                <i class='bx bx-user-check'></i>
+                <span class="link_name">Attendance</span>
+            </a>
+            <span class="tooltip">Attendance</span>
+        </li>
             <li>
                 <a href="task.php">
                     <i class="bx bx-home"></i>
@@ -136,17 +136,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="tooltip">Task</span>
             </li>
             <li class="profile">
-                <div class="profile_details">
-                    <img src="fox.jpg" alt="profile image">
-                    <div class="profile_content">
-                        <div class="name"><?php echo "Night Fox"; ?></div>
-                        <div class="designation"><?php echo "Admin"; ?></div>
-                    </div>
-                </div>
-                <i class="bx bx-log-out" id="log_out"></i>
-            </li>
-        </ul>
+            <div class="profile_details">
+    <img src="<?= htmlspecialchars($profile_image); ?>" alt="profile image">
+    <div class="profile_content">
+        <div class="name"><?= htmlspecialchars($_SESSION['display_username']); ?></div>
+        <div class="designation"><?= htmlspecialchars($user['role']); ?></div>
     </div>
+</div>
 
     <div class="content">
         <h1>Invite Member</h1>

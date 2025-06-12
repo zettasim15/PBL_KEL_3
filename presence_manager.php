@@ -49,12 +49,12 @@
                 <span class="tooltip">Invite Member</span>
             </li>
             <li>
-                <a href="presence_manager.php">
-                    <i class="bx bx-user-check"></i>
-                    <span class="link_name">Presence</span>
-                </a>
-                <span class="tooltip">Presence</span>
-            </li>
+            <a href="presence_manager.php">
+                <i class='bx bx-user-check'></i>
+                <span class="link_name">Attendance</span>
+            </a>
+            <span class="tooltip">Attendance</span>
+        </li>
             <li>
                 <a href="task_manager.php">
                     <i class="bx bx-task-x"></i>

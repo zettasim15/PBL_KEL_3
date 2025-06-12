@@ -12,12 +12,12 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$manager_id = $_SESSION['user_id']; // Anggap ini adalah manager_id
 
 // Fetch user information from the database
 $sql = "SELECT username, role, profile_image, is_first_login FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("i", $manager_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -41,10 +41,7 @@ $profile_image = isset($user['profile_image']) && $user['profile_image'] ? $user
 // Query to get the number of schedules
 $sql_schedules = "SELECT COUNT(*) as schedule_count FROM schedule_list WHERE assignee = ?";
 $stmt_schedules = $conn->prepare($sql_schedules);
-if ($stmt_schedules === false) {
-    die("MySQL prepare error: " . $conn->error . " | Query: " . $sql_schedules);
-}
-$stmt_schedules->bind_param("i", $user_id);
+$stmt_schedules->bind_param("i", $manager_id);
 $stmt_schedules->execute();
 $result_schedules = $stmt_schedules->get_result();
 $schedule_data = $result_schedules->fetch_assoc();
@@ -53,10 +50,7 @@ $schedule_count = $schedule_data['schedule_count'] ?? 0;
 // Query to get the number of teams
 $sql_teams = "SELECT COUNT(*) as team_count FROM teams WHERE created_by = ?";
 $stmt_teams = $conn->prepare($sql_teams);
-if ($stmt_teams === false) {
-    die("MySQL prepare error: " . $conn->error . " | Query: " . $sql_teams);
-}
-$stmt_teams->bind_param("i", $user_id);
+$stmt_teams->bind_param("i", $manager_id);
 $stmt_teams->execute();
 $result_teams = $stmt_teams->get_result();
 $team_data = $result_teams->fetch_assoc();
@@ -65,14 +59,48 @@ $team_count = $team_data['team_count'] ?? 0;
 // Query to get the number of invited members
 $sql_members = "SELECT COUNT(*) as member_count FROM team_members WHERE team_id IN (SELECT team_id FROM teams WHERE created_by = ?)";
 $stmt_members = $conn->prepare($sql_members);
-if ($stmt_members === false) {
-    die("MySQL prepare error: " . $conn->error . " | Query: " . $sql_members);
-}
-$stmt_members->bind_param("i", $user_id);
+$stmt_members->bind_param("i", $manager_id);
 $stmt_members->execute();
 $result_members = $stmt_members->get_result();
 $member_data = $result_members->fetch_assoc();
 $member_count = $member_data['member_count'] ?? 0;
+
+// Fetch tasks for manager
+$sql_tasks = "
+SELECT t.nama, t.deadline, t.status, t.deskripsi, u.username 
+FROM tasks t
+JOIN users u ON t.member_id = u.id
+WHERE t.member_id IN (
+    SELECT member_id FROM team_members
+    WHERE team_id IN (
+        SELECT team_id FROM teams WHERE created_by = ?
+    )
+)
+ORDER BY t.deadline ASC
+";
+
+// Menyiapkan query
+$stmt_tasks = $conn->prepare($sql_tasks);
+if ($stmt_tasks === false) {
+    die("MySQL prepare error: " . $conn->error . " | Query: " . $sql_tasks);
+}
+
+// Mengikat parameter
+$stmt_tasks->bind_param("i", $manager_id); 
+
+// Menjalankan query
+$stmt_tasks->execute();
+
+// Mendapatkan hasil query
+$tugas_result = $stmt_tasks->get_result();
+
+// Mengambil data hasil dalam bentuk array asosiasi
+$tugas_data = $tugas_result->fetch_all(MYSQLI_ASSOC);
+
+// Debugging: Tampilkan data tugas
+echo "<pre>";
+print_r($tugas_data);
+echo "</pre>";
 ?>
 
 
@@ -128,12 +156,12 @@ $member_count = $member_data['member_count'] ?? 0;
                 <span class="tooltip">Invite Member</span>
             </li>
             <li>
-                <a href="presence_manager.php">
-                    <i class="bx bx-user-check"></i>
-                    <span class="link_name">Presence</span>
-                </a>
-                <span class="tooltip">Presence</span>
-            </li>
+            <a href="presence_manager.php">
+                <i class='bx bx-user-check'></i>
+                <span class="link_name">Attendance</span>
+            </a>
+            <span class="tooltip">Attendance</span>
+        </li>
             <li>
                 <a href="task_manager.php">
                     <i class="bx bx-task-x"></i>

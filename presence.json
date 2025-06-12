@@ -1,0 +1,17 @@
+// Buka file json
+$dataFile = 'absensi.json';
+$dataAbsensi = file_exists($dataFile) ? json_decode(file_get_contents($dataFile), true) : [];
+
+// Tambah data baru
+$dataBaru = [
+    'nama' => $_POST['nama'],
+    'tanggal' => $_POST['tanggal'],
+    'status' => $_POST['status'],
+    'foto' => $pathFoto // jika ada upload
+];
+
+// Tambahkan data baru ke depan array
+array_unshift($dataAbsensi, $dataBaru);
+
+// Simpan kembali ke file
+file_put_contents($dataFile, json_encode($dataAbsensi, JSON_PRETTY_PRINT));

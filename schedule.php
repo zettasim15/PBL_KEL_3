@@ -93,13 +93,6 @@ $result = $stmt->get_result();
             <span class="tooltip">Schedule</span>
         </li>
         <li>
-            <a href="kalendermember.php">
-                <i class="bx bxs-calendar"></i>
-                <span class="link_name">Calendar</span>
-            </a>
-            <span class="tooltip">Calendar</span>
-        </li>
-        <li>
             <a href="group.php">
                 <i class="bx bxs-group"></i>
                 <span class="link_name">Teams</span>
@@ -109,9 +102,9 @@ $result = $stmt->get_result();
         <li>
             <a href="presence.php">
                 <i class='bx bx-user-check'></i>
-                <span class="link_name">Presence</span>
+                <span class="link_name">Attendance</span>
             </a>
-            <span class="tooltip">Presence</span>
+            <span class="tooltip">Attendance</span>
         </li>
         <li>
             <a href="task2.php">

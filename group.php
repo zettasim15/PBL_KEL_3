@@ -107,13 +107,6 @@ if (!$stmt_teams) {
             <span class="tooltip">Schedule</span>
         </li>
         <li>
-            <a href="kalendermember.php">
-                <i class="bx bxs-calendar"></i>
-                <span class="link_name">Calendar</span>
-            </a>
-            <span class="tooltip">Calendar</span>
-        </li>
-        <li>
             <a href="group.php">
                 <i class="bx bxs-group"></i>
                 <span class="link_name">Teams</span>
